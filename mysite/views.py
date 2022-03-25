@@ -14,6 +14,7 @@ date_time = now.strftime("%d/%m/%Y, %H:%M:%S")
 
 
 
+
 def post_job(request):
     m = sql.connect(host='localhost', user='root',passwd='', database='JobShip')
     cursor = m.cursor()
