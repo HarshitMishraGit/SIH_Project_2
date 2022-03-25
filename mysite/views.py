@@ -13,6 +13,71 @@ now = datetime.now() # current date and time
 date_time = now.strftime("%d/%m/%Y, %H:%M:%S")
 
 
+def posted_job(request):
+    args={}
+    m = sql.connect(host='localhost', user='root',passwd='', database='JobShip')
+    cursor = m.cursor()
+    jai=request.session.get('login_id')    
+    # c3 = """select * from pinned_job where job_applicant_id=23 """.format(request.session.get('job_applicant_id'))
+    c3 = """select * from pinned_job where job_applicant_id='{}'""".format(jai)# jai means job application id
+    cursor.execute(c3)
+    t = tuple(cursor.fetchall())
+    p = list(t)
+    print(p)
+    l=[]
+    for i in range (0,len(p)):
+        comp={}
+        pt =list(p[i])
+        comp['sno']=pt[0]
+        comp['job_applicant_id']=pt[1]
+        comp['job_id']=pt[2]
+        comp['time']=pt[3]
+        # here we fetched the job_id but we have to show the job description like home page
+        # so we have to fetch the job from job id
+        c4="""select * from job where job_id='{}'""".format(pt[2])
+        cursor.execute(c4)
+        t1 = tuple(cursor.fetchall())
+        p1 = list(t1)
+        pt1= list(p1[0])
+        print("this is job at job_id= ",pt[2]," is ",pt1)
+        comp['comp_name']=pt1[1]
+        comp['jobdescription']=pt1[2]
+        comp['jobtitle']=pt1[3]
+        comp['skills']=pt1[4]
+        comp['skills']=pt1[4]
+        comp['joblocation_address']=pt1[5]
+        comp['vacencies']=pt1[6]
+        comp['domain']=pt1[7]
+        comp['linkedin']=pt1[8]
+
+
+
+        l.append(comp)
+    # args['jobs']=l  
+    print("this is l:",l)   
+    args['jobs']=l
+       
+
+
+    
+    
+    if request.method=="POST":
+        m = sql.connect(host='localhost', user='root',passwd='', database='JobShip')
+        cursor = m.cursor()
+        d = request.POST
+        for key, value in d.items():
+            if key == "job_applicant_id":
+                job_applicant_id = value
+
+            if key == "job_id":
+                job_id = value
+        print('job applicant id is :',job_applicant_id)        
+        c1 = """INSERT INTO pinned_job Values('{}','{}', '{}','{}');""".format(0,job_applicant_id,job_id,date_time)    
+        cursor.execute(c1)
+        m.commit() 
+
+    return render(request,'posted_job.html')
+
 
 
 def post_job(request):
