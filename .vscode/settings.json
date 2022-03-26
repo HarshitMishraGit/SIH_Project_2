@@ -1,0 +1,4 @@
+{
+    "appService.defaultWebAppToDeploy": "/subscriptions/9207f813-fd11-4621-93c0-4ea1b3561926/resourceGroups/appsvc_linux_centralus/providers/Microsoft.Web/sites/hireandseek",
+    "appService.deploySubpath": "."
+}

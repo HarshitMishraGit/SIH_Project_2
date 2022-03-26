@@ -10,7 +10,7 @@
         integrity="sha512-10/jx2EXwxxWqCLX/hHth/vu2KY3jCF70dCQB8TSgNjbCVAC/8vai53GfMDrO2Emgwccf2pJqxct9ehpzG+MTw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" /> -->
     <link rel="stylesheet" href="/static/assets/input.css">
-    <title>Hire and Seek</title>
+    <title>WinkedIn</title>
     <style>
         /* Dropdown Button */
 
@@ -61,13 +61,11 @@
 
         <div class="2 flex flex-row space-x-3 justify-center text-center">
             <span class="logo text-blue-800 dt ">
-                {% comment %} <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="fill-current w-7 h-7"> {% endcomment %}
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="fill-current w-7 h-7">
                     <!--! Font Awesome Pro 6.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
-                    {% comment %} <path
+                    <path
                         d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z" />
-                </svg> {% endcomment %}
-                <img src="/static/image/linkedin_logo.png" alt="logo"
-                style="margin-right: 5px;height: 30px;width: 45px;">
+                </svg>
             </span>
 
             <form action="/" method="post" class="search">
@@ -87,13 +85,8 @@
         
 
         <div class="1 hidden lg:flex flex-row space-x-6 justify-center">
-            <li class="item1 cursor-pointer select-none"><a href="/home/"> Home </a> </li>
-            {% if request.session.iscompany %}
-            <li class="item2 cursor-pointer select-none"><a href="/posted_job/">Posted Jobs </a> </li>
-            {% else %}
-            <li class="item2 cursor-pointer select-none"><a href="/pinned_job/">Pinned Jobs </a> </li>
-            {%endif%}
-
+            <li class="item1 cursor-pointer select-none"><a href="/"> Home </a> </li>
+            <li class="item2 cursor-pointer select-none"><a href="#"> Jobs </a> </li>
             <li class="item3 cursor-pointer select-none"><a href="#"> My Network </a> </li>
             <!-- <li class="item3 cursor-pointer select-none" id="dropdown" onclick="dropdown()">Dropdown</li>
              -->
@@ -106,7 +99,7 @@
                     <li><a class="dt dark:hover:text-gray-700" href="/user/">Your Jobs</a></li>
                     <li><a class="dt dark:hover:text-gray-700" href="/user/">Your Intrest</a></li>
                     <li><a class="dt dark:hover:text-gray-700" href="/logout/">Log Out</a></li>
-                    <li><a class="dt dark:hover:text-gray-700" href="#">Settings</a></li>
+                    <li><a class="dt dark:hover:text-gray-700" href="/settings/">Settings</a></li>
 
                 </ul>
 
@@ -136,7 +129,7 @@
         <li class="border-b-2 flex flex-row space-x-2 justify-start border-gray-300 hover:bg-gray-400 hover:text-gray-800 px-4 py-3 w-full"><p class="dt dark:hover:text-gray-700" >Mode</p> <button onclick="mode()"
             class="shadow-md shadow-gray-500 dark:shadow-gray-200 rounded-lg text-white dark:text-black font-bold px-2 py-1 hover:opacity-80 duration-1000 dark:bg-[url('./image/dark.png')] bg-[url('./image/light-mode.png')] w-10 h-5 bg-no-repeat border-2 border-gray-300 mt-2 ml-2"></button></li>
         
-        <li class="border-b-2 border-gray-300 hover:bg-gray-400 hover:text-gray-800 px-4 py-3 w-full"><a class="dt dark:hover:text-gray-700" href="#">Settings</a></li>
+        <li class="border-b-2 border-gray-300 hover:bg-gray-400 hover:text-gray-800 px-4 py-3 w-full"><a class="dt dark:hover:text-gray-700" href="/settings/">Settings</a></li>
         
 
     <!-- phone Menu -->
@@ -195,7 +188,7 @@
                             </svg>
                         </div>
                         <div class="text-xs text-blue-600 font-semibold dt"><a
-                                href="https://{{website}}" target="_blank"
+                                href="{{website}}"
                                 id="website">{{website}}</a></div>
                     </div>
 
@@ -222,7 +215,7 @@
 
                     </div>
                 </div>
-                <div class="text-[10px] text-gray-600 ml-4" style="font-family: cursive;" id="summary">
+                <div class="text-[10px] text-gray-600 " style="font-family: cursive;" id="summary">
                    {{summary}}
                 </div>
             </div>
@@ -247,7 +240,7 @@
 
                     </div>
                 </div>
-                <div class="text-[10px]  text-gray-600 text-left ml-4 " style="font-family: cursive;">
+                <div class="text-[10px]  text-gray-600 text-center " style="font-family: cursive;">
                    {{experience}}
 
                 </div>
@@ -274,10 +267,10 @@
                     </div>
                 </div>
                 <div class="ml-4" id="education">
-                    <div class="universityName font-semibold text-md text-gray-600 dt" id="clggg">{{college}}
+                    <div class="universityName font-semibold text-md text-gray-600 dt">{{college}}
                     </div>
-                    <div class="Degree text-sm text-gray-400 text-left" id="deggg">{{degree}}</div>
-                    <div class="timePeriod text-left text-sm" id="tmppp">{{timePeriod}}</div>
+                    <div class="Degree text-sm text-gray-400 text-left">{{degree}}</div>
+                    <div class="timePeriod text-left text-sm">{{timePeriod}}</div>
                 </div>
             </div>
 
@@ -302,26 +295,16 @@
                     </div>
                 </div>
                 <div class="text-[10px] text-gray-600 text-center  " style="font-family: cursive;">
-                    {%if certificate_name == cn %}
+                    {% comment %} {%if certificate_name=='cn' %} {% endcomment %}
                         This section is empty and won't appear in your resume.
-                    {%else%}
-                    <div class="ml-4 {{'hidden'}}" id="license">
-                        <div class="universityName font-semibold text-md text-gray-600 dt">{{certificate_name}}
+                    {% comment %} {%else%} {% endcomment %}
+                        <div class="ml-4" id="license">
+                            <div class="universityName font-semibold text-md text-gray-600 dt">{{certificate_name}}
+                            </div>
+                            <div class="Degree text-sm text-gray-400 text-left">{{certificate_desc}}</div>
                         </div>
-                        <div class="Degree text-sm text-gray-400 text-left">{{certificate_desc}}</div>
-                    </div>
-                    {%endif%}
+                    {% comment %} {%endif%} {% endcomment %}
 
-                    {% comment %} {%if  certificate_name == cn
-                        
-                        pprint('hello')
-                        
-                        
-                        
-                        
-                        
-                        
-                        %} {% endcomment %}
                 </div>
 
             </div>
@@ -351,27 +334,52 @@
                     <div class="Database-work-with">
                         <div class="universityName font-semibold text-md text-gray-600 dt">Database work with
                         </div>
-                    <ul id="dbww" class="decoration-stone-800 text-xs list-disc list-inside flex flex-row space-x-3 justify-center">{{database_worked_with}}</ul>
+                    <ul id="dbww" class="decoration-stone-800 text-xs list-disc list-inside flex flex-row space-x-3 justify-center">
+                        {{database_worked_with}}
+                        {% comment %} <p>GitHUb</p>
+                        <p>C</p>
+                        <p>C++</p> {% endcomment %}
                     </div>
                   <div class="Language">
                     <div class="universityName font-semibold text-md text-gray-600 dt">Language Work With
                     </div>
-                <ul id="lww" class="decoration-stone-800 text-xs list-disc list-inside flex flex-row space-x-3 justify-center">{{language_worked_with}}</ul>
+                <ul id="lww" class="decoration-stone-800 text-xs list-disc list-inside flex flex-row space-x-3 justify-center">
+                    {{language_worked_with}}
+                    {% comment %} <p>GitHUb</p>
+                    <p>C</p>
+                    <p>C++</p> {% endcomment %}
+                </ul>
                   </div>
                   <div class="Collab tools">
                     <div class="universityName font-semibold text-md text-gray-600 dt">Collab tools
                     </div>
-                <ul id="ct" class="decoration-stone-800 text-xs list-disc list-inside flex flex-row space-x-3 justify-center">{{collab_tools}}</ul>
+                <ul id="ct" class="decoration-stone-800 text-xs list-disc list-inside flex flex-row space-x-3 justify-center">
+                    {{collab_tools}}
+                    
+                    {% comment %} <p>GitHUb</p>
+                    <p>C</p>
+                    <p>C++</p> {% endcomment %}
+                </ul>
                   </div>
                   <div class="OpSys">
                     <div class="universityName font-semibold text-md text-gray-600 dt">Operating Systems Work With
                     </div>
-                <ul id="opsys" class="decoration-stone-800 text-xs list-disc list-inside flex flex-row space-x-3 justify-center">{{opsys}}</ul>
+                <ul id="opsys" class="decoration-stone-800 text-xs list-disc list-inside flex flex-row space-x-3 justify-center">
+                    {{opsys}}
+                    {% comment %} <p>GitHUb</p>
+                    <p>C</p>
+                    <p>C++</p> {% endcomment %}
+                </ul>
                   </div>
                   <div class="Plateform-worked-with">
                     <div class="universityName font-semibold text-md text-gray-600 dt">Platefrom Work With
                     </div>
-                <div id="pww" class="decoration-stone-800 text-xs list-disc list-inside flex flex-row space-x-3 justify-center">{{plateform_worked_with}}</div>
+                <ul id="pww" class="decoration-stone-800 text-xs list-disc list-inside flex flex-row space-x-3 justify-center">
+                    {{plateform_worked_with}}
+                    {% comment %} <p>GitHUb</p>
+                    <p>C</p>
+                    <p>C++</p> {% endcomment %}
+                </ul>
                   </div>
             </div>
         </div>
@@ -414,35 +422,21 @@
 
         <div
             class="items2 side-window w-full lg:w-[30%] db dt bg-white px-3 py-7  rounded-lg border-2 border-gray-200 dark:border-gray-600">
-            <div class="Degree text-sm text-gray-600 font-semibold text-left dt">Recommended Jobs</div>
-
-            {%for i in recommended_jobs%}
-<div class="items2 side-window w-full my-3 mx-auto db dt bg-white px-3 py-7  rounded-lg border-2 border-gray-200 dark:border-gray-600">
-    <div class="photo flex flex-row justify-start mx-5"  >
-        <img src="https://logo.clearbit.com/{{i.domain}}" alt="" class="w-[6rem]" id="user_photo">
-    </div>
-   
-    <span class="font-bold text-2xl text-gray-600 dt">{{i.comp_name}}</span><br>
-    <label for="jt" class="text-gray-600 dt font-semibold">JobTitle :</label>
-   <span><p>{{i.jobtitle}}</p></span>  <br>
-   <label for="jt" class="text-gray-600 dt font-semibold">Location :</label>
-    <p>{{i.joblocation_address}}</p><hr class="mt-2">
-    <div class="hidden">
-        <p>{{i.jobdescription}}</p><br>
-        <p>{{i.skills}}</p><br>
-        <p>{{i.vacencies}}</p><br>
-        <p>{{i.domain}}</p><br>
-        <p>{{i.linkedin}}</p><br>
-        <p>{{i.job_id}}</p><br>
-        </div>
-    <button type=""  onclick="jobModalSwitch()"
-    class="mx-auto bg-blue-800 text-white hover:bg-blue-500 active:bg-blue-800 rounded-lg px-4 py-2 jobbtn mt-3" >Open</button>
-
-
-</div>
-
-   {% endfor %}
-
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi in ut repellat necessitatibus mollitia
+            vel modi officia iusto error est quidem provident unde, distinctio quas suscipit maxime porro, ab soluta?
+            Assumenda tempora excepturi eum qui sed, officiis quasi! Perspiciatis voluptates illum blanditiis debitis
+            nesciunt in recusandae! Nihil ut reprehenderit cumque tempore nemo porro voluptate, dolorem laudantium
+            nesciunt cupiditate reiciendis, vitae corporis officiis repellat id, suscipit aliquid quo ipsum tenetur.
+            Ullam neque ex obcaecati doloremque laborum ad unde distinctio quo hic odio. Eos ullam repellendus optio
+            praesentium. Cum odio ullam, ipsa incidunt cupiditate suscipit dolores nihil, vel saepe aspernatur nemo
+            autem sequi excepturi accusamus ad explicabo perferendis omnis labore inventore ipsam deserunt eligendi
+            quasi dicta! Nesciunt veritatis, suscipit ducimus commodi aliquid numquam esse minus et obcaecati labore
+            accusamus possimus aspernatur excepturi nostrum iste quae? Tempora accusantium tenetur sapiente quisquam
+            placeat excepturi rem assumenda explicabo fuga totam, ut, quidem eveniet, voluptatibus consequuntur veniam
+            harum consequatur vitae. Distinctio officiis dicta harum quam quisquam soluta facilis repellendus error
+            perspiciatis nisi, possimus, exercitationem enim accusamus dolores delectus sed aperiam odio cupiditate
+            ipsum aspernatur vero. Provident quo eius ratione magnam inventore dolore voluptas et perspiciatis vitae,
+            saepe ipsum pariatur impedit voluptatum repellat dolorum veniam accusamus modi.
         </div>
     </div>
     <div class="w-full h-[200%] hidden  absolute inset-0 bg-black bg-opacity-70 z-10" id="imageId">
@@ -611,7 +605,7 @@
                     <!-- 
                 <input type="email" placeholder="UserName or Email" name="email"
                     class="rounded-lg bg-gray-200 focus:bg-white border-none focus:border-2 focus:border-blue-500 px-5 py-2 "> -->
-                    <input type="text" placeholder="Institute name" name="college"
+                    <input type="text" placeholder="Institute name" name="Institute"
                         class="rounded-lg db dark:focus:bg-gray-600 bg-gray-200 focus:bg-white  dark:border-[1px] dark:border-gray-600 focus:border-2 focus:border-blue-500 px-5 py-2 w-full my-1">
                     <input type="text" placeholder="degree" name="degree"
                         class="rounded-lg db dark:focus:bg-gray-600 bg-gray-200 focus:bg-white  dark:border-[1px] dark:border-gray-600 focus:border-2 focus:border-blue-500 px-5 py-2 w-full my-1">
@@ -655,9 +649,9 @@
                     <!-- 
                 <input type="email" placeholder="UserName or Email" name="email"
                     class="rounded-lg bg-gray-200 focus:bg-white border-none focus:border-2 focus:border-blue-500 px-5 py-2 "> -->
-                    <input type="text" placeholder="Certificate name" name="certificate_name"
+                    <input type="text" placeholder="Certificate name" name="Certificate_name"
                         class="rounded-lg db dark:focus:bg-gray-600 bg-gray-200 focus:bg-white  dark:border-[1px] dark:border-gray-600 focus:border-2 focus:border-blue-500 px-5 py-2 w-full my-1">
-                    <textarea type="text" placeholder="Description" name="certificate_desc" cols="30" rows="10"
+                    <textarea type="text" placeholder="Description" name="Certificate_desc" cols="30" rows="10"
                         class="rounded-lg db dark:focus:bg-gray-600 bg-gray-200 focus:bg-white  dark:border-[1px] dark:border-gray-600 focus:border-2 focus:border-blue-500 px-5 py-2 w-full my-1"></textarea>
 
                     <div class="flex flex-row space-x-2 justify-end">
@@ -698,20 +692,20 @@
                 <input type="email" placeholder="UserName or Email" name="email"
                     class="rounded-lg bg-gray-200 focus:bg-white border-none focus:border-2 focus:border-blue-500 px-5 py-2 "> -->
                     <p class="mb-3 font-semibold text-gray-700">Add you skills seperated by comma(,) :</p>
-                    <input type="text" title="Database worked with" placeholder="Database worked with" name="database_worked_with" cols="30" rows="3" id="skills_name"
-                        class="rounded-lg db dark:focus:bg-gray-600 bg-gray-200 focus:bg-white  dark:border-[1px] dark:border-gray-600 focus:border-2 focus:border-blue-500 px-5 py-2 w-full"></input>
+                    <textarea type="text" title="Language worked with" placeholder="Database worked with" name="Database_worked_with" cols="30" rows="3" id="skills_name"
+                        class="rounded-lg db dark:focus:bg-gray-600 bg-gray-200 focus:bg-white  dark:border-[1px] dark:border-gray-600 focus:border-2 focus:border-blue-500 px-5 py-2 w-full"></textarea>
                     <p class="mb-3 font-semibold text-gray-700">Add you skills seperated by comma(,) :</p>
-                    <input type="text" title="Add you skills seperated by comma(,)" placeholder="Language worked with" name="language_worked_with" cols="30" rows="3" id="skills_name"
-                        class="rounded-lg db dark:focus:bg-gray-600 bg-gray-200 focus:bg-white  dark:border-[1px] dark:border-gray-600 focus:border-2 focus:border-blue-500 px-5 py-2 w-full"></input>
+                    <textarea type="text" title="Add you skills seperated by comma(,)" placeholder="Language worked with" name="Language_worked_with" cols="30" rows="3" id="skills_name"
+                        class="rounded-lg db dark:focus:bg-gray-600 bg-gray-200 focus:bg-white  dark:border-[1px] dark:border-gray-600 focus:border-2 focus:border-blue-500 px-5 py-2 w-full"></textarea>
                     <p class="mb-3 font-semibold text-gray-700">Add you skills seperated by comma(,) :</p>
-                    <input type="text" title="Add you skills seperated by comma(,)" placeholder="collabtools" name="collab_tools" cols="30" rows="3" id="skills_name"
-                        class="rounded-lg db dark:focus:bg-gray-600 bg-gray-200 focus:bg-white  dark:border-[1px] dark:border-gray-600 focus:border-2 focus:border-blue-500 px-5 py-2 w-full"></input>
+                    <textarea type="text" title="Add you skills seperated by comma(,)" placeholder="collabtools" name="collab_tools" cols="30" rows="3" id="skills_name"
+                        class="rounded-lg db dark:focus:bg-gray-600 bg-gray-200 focus:bg-white  dark:border-[1px] dark:border-gray-600 focus:border-2 focus:border-blue-500 px-5 py-2 w-full"></textarea>
                     <p class="mb-3 font-semibold text-gray-700">Add you skills seperated by comma(,) :</p>
-                    <input type="text" title="Add you skills seperated by comma(,)" placeholder="Operating Systems worked with" name="opsys" cols="30" rows="3" id="skills_name"
-                        class="rounded-lg db dark:focus:bg-gray-600 bg-gray-200 focus:bg-white  dark:border-[1px] dark:border-gray-600 focus:border-2 focus:border-blue-500 px-5 py-2 w-full"></input>
+                    <textarea type="text" title="Add you skills seperated by comma(,)" placeholder="Operating Systems worked with" name="OpSys" cols="30" rows="3" id="skills_name"
+                        class="rounded-lg db dark:focus:bg-gray-600 bg-gray-200 focus:bg-white  dark:border-[1px] dark:border-gray-600 focus:border-2 focus:border-blue-500 px-5 py-2 w-full"></textarea>
                     <p class="mb-3 font-semibold text-gray-700">Add you skills seperated by comma(,) :</p>
-                    <input type="text" title="Add you skills seperated by comma(,)" placeholder="Plateform worked with" name="plateform_worked_with" cols="30" rows="3" id="skills_name"
-                        class="rounded-lg db dark:focus:bg-gray-600 bg-gray-200 focus:bg-white  dark:border-[1px] dark:border-gray-600 focus:border-2 focus:border-blue-500 px-5 py-2 w-full"></input>
+                    <textarea type="text" title="Add you skills seperated by comma(,)" placeholder="Plateform worked with" name="Plateform_worked_with" cols="30" rows="3" id="skills_name"
+                        class="rounded-lg db dark:focus:bg-gray-600 bg-gray-200 focus:bg-white  dark:border-[1px] dark:border-gray-600 focus:border-2 focus:border-blue-500 px-5 py-2 w-full"></textarea>
                     
 
                     <div class="flex flex-row space-x-2 justify-end">
@@ -770,7 +764,7 @@
 
      <!-- footer -->
      <div class="flex flex-row justify-center mx-auto text-sm dark:text-gray-500 relative bottom-0 my-10">
-        <span>Copyright© Hire and Seek 2021-2022</span>
+        <span>Copyright© WinkedIn 2021-2022</span>
     </div>
     <!-- footer -->
     <script>
@@ -862,16 +856,9 @@
             modalWindow = document.getElementById('eduModal');
             // modal Form Has the id nameModal
             var formModal = document.getElementById('educationModal');
-            education=document.getElementById('education')
-            
+
             modalWindow.classList.toggle('hidden');
             // formModal.getElementsByTagName('textarea')[0].value = summary;
-            // college name
-            formModal.getElementsByTagName('input')[1].value=education.getElementsByTagName('div')[0].innerHTML
-            // degree name
-            formModal.getElementsByTagName('input')[2].value=education.getElementsByTagName('div')[1].innerHTML
-            // timeperiod name
-            formModal.getElementsByTagName('input')[3].value=education.getElementsByTagName('div')[2].innerHTML
 
             // console.log(nameModal);
         }
@@ -885,7 +872,7 @@
             var certificate_desc = document.getElementById('license').getElementsByTagName('div')[1].innerHTML;
 
             modalWindow.classList.toggle('hidden');
-            formModal.getElementsByTagName('input')[1].value = certificate_name;
+            formModal.getElementsByTagName('input')[0].value = certificate_name;
             formModal.getElementsByTagName('textarea')[0].value = certificate_desc;
 
             // console.log(nameModal);
@@ -904,26 +891,23 @@
             var Plateform_worked_with=document.getElementById('pww');
             var skill=new Array();
             // here we are displaying the data of the skills section in modal
-                    // value=(field,index)=>{
-                    //     for(var i=0;field.getElementsByTagName('p')[i]!=null;i++){
-                    //     skill[i]=field.getElementsByTagName('p')[i].innerHTML;
-                    // }
-                    // var skill_str=skill.join(',');
-                    // console.log(skill_str);
-                    // formModal.getElementsByTagName('textarea')[index].value=skill_str;
-                    // }
-
                     value=(field,index)=>{
-                formModal.getElementsByTagName('input')[index].value=field.innerHTML;
-            }
-                    value(Database_worked_with,1)
-                    value(Language_worked_with,2)
-                    value(collab_tools,3)
-                    value(opsys,4)
-                    value(Plateform_worked_with,5)
+                        for(var i=0;field.getElementsByTagName('p')[i]!=null;i++){
+                        skill[i]=field.getElementsByTagName('p')[i].innerHTML;
+                    }
+                    var skill_str=skill.join(',');
+                    console.log(skill_str);
+                    formModal.getElementsByTagName('textarea')[index].value=skill_str;
+                    }
+
+                    value(Database_worked_with,0)
+                    value(Language_worked_with,1)
+                    value(collab_tools,2)
+                    value(opsys,3)
+                    value(Plateform_worked_with,4)
             // console.log(skill);// this is an array which has all the skills 
-          
             
+
             modalWindow.classList.toggle('hidden');
            
         }

@@ -9,19 +9,80 @@ from django.shortcuts import redirect, render
 import mysql.connector as sql
 from datetime import datetime
 from django.contrib import messages
-import Content_based_recomendation as ml
-
-
-
-now = datetime.now() # current date and tim
+now = datetime.now() # current date and time
 date_time = now.strftime("%d/%m/%Y, %H:%M:%S")
+
+
+def posted_job(request):
+    args={}
+    m = sql.connect(host='localhost', user='root',passwd='', database='JobShip')
+    cursor = m.cursor()
+    jai=request.session.get('login_id')    
+    # c3 = """select * from pinned_job where job_applicant_id=23 """.format(request.session.get('job_applicant_id'))
+    c3 = """select * from pinned_job where job_applicant_id='{}'""".format(jai)# jai means job application id
+    cursor.execute(c3)
+    t = tuple(cursor.fetchall())
+    p = list(t)
+    print(p)
+    l=[]
+    for i in range (0,len(p)):
+        comp={}
+        pt =list(p[i])
+        comp['sno']=pt[0]
+        comp['job_applicant_id']=pt[1]
+        comp['job_id']=pt[2]
+        comp['time']=pt[3]
+        # here we fetched the job_id but we have to show the job description like home page
+        # so we have to fetch the job from job id
+        c4="""select * from job where job_id='{}'""".format(pt[2])
+        cursor.execute(c4)
+        t1 = tuple(cursor.fetchall())
+        p1 = list(t1)
+        pt1= list(p1[0])
+        print("this is job at job_id= ",pt[2]," is ",pt1)
+        comp['comp_name']=pt1[1]
+        comp['jobdescription']=pt1[2]
+        comp['jobtitle']=pt1[3]
+        comp['skills']=pt1[4]
+        comp['skills']=pt1[4]
+        comp['joblocation_address']=pt1[5]
+        comp['vacencies']=pt1[6]
+        comp['domain']=pt1[7]
+        comp['linkedin']=pt1[8]
+
+
+
+        l.append(comp)
+    # args['jobs']=l  
+    print("this is l:",l)   
+    args['jobs']=l
+       
+
+
+    
+    
+    if request.method=="POST":
+        m = sql.connect(host='localhost', user='root',passwd='', database='JobShip')
+        cursor = m.cursor()
+        d = request.POST
+        for key, value in d.items():
+            if key == "job_applicant_id":
+                job_applicant_id = value
+
+            if key == "job_id":
+                job_id = value
+        print('job applicant id is :',job_applicant_id)        
+        c1 = """INSERT INTO pinned_job Values('{}','{}', '{}','{}');""".format(0,job_applicant_id,job_id,date_time)    
+        cursor.execute(c1)
+        m.commit() 
+
+    return render(request,'posted_job.html')
 
 
 
 def post_job(request):
     m = sql.connect(host='localhost', user='root',passwd='', database='JobShip')
     cursor = m.cursor()
-    # ml.rec_comp()
     d = request.POST
     for key, value in d.items():
         if key == "jobtitle":
@@ -103,7 +164,7 @@ def pinned_job(request):
         t1 = tuple(cursor.fetchall())
         p1 = list(t1)
         pt1= list(p1[0])
-        print("the job at job_id= ",pt[2]," is ",pt1)
+        print("this is job at job_id= ",pt[2]," is ",pt1)
         comp['comp_name']=pt1[1]
         comp['jobdescription']=pt1[2]
         comp['jobtitle']=pt1[3]
@@ -152,9 +213,7 @@ def home(request):
     m = sql.connect(host='localhost', user='root',
                         passwd='', database='JobShip')
     cursor = m.cursor()
-    if not  request.session.get('iscompany'):
-        print("these are the recommendations :",ml.recommend(request.session.get('job_applicant_id')))
-        print("This is your job applicant id :",request.session.get('job_applicant_id'))
+
     d = request.POST
     for key, value in d.items():
             if key == "email":
@@ -621,7 +680,8 @@ def signup(request):
 
 def user(request):
     id=request.session.get('email')
-    kwargs={}
+
+    # args = {'name': request.session.get('name'),'email':request.session.get('email')}
     def user_info(id):
         m = sql.connect(host='localhost', user='root',passwd='', database='JobShip')
         cursor = m.cursor()
@@ -637,45 +697,10 @@ def user(request):
         kwargs = {'name':ptp[0],'place':ptp[1],'email':ptp[2],'website':ptp[3],'phone':ptp[4],'summary':ptp[5],'experience':ptp[6],'college':ptp[7],'degree':ptp[8],'timePeriod':ptp[9],'certificate_name':ptp[10],'certificate_desc':ptp[11],'database_worked_with':ptp[12],'language_worked_with':ptp[13],'collab_tools':ptp[14],'opsys':ptp[15],'plateform_worked_with':ptp[16],'honor_or_reward':ptp[17],'honor_or_reward_desc':ptp[18],'cn':'cn'}
         return kwargs
     # get request
-    def recommended():
-        m = sql.connect(host='localhost', user='root',passwd='', database='JobShip')
-        cursor = m.cursor()
-        # this is for printing recommendation
-        if not  request.session.get('iscompany'):
-            # print("these are the recommendations :",ml.recommend(request.session.get('job_applicant_id')))
-            # print("This is your job applicant id :",request.session.get('job_applicant_id'))
-            recj=ml.recommend(request.session.get('job_applicant_id'))
-            
-            # this will give us a list with recommended jobs
-            rec_l=[]
-            
-            for i in range (0,5):
-                rec_comp={}
-                rec_c5= """select * from job where job_id='{}'""".format(recj[i])
-                cursor.execute(rec_c5)
-                rec_t=tuple(cursor.fetchall())
-                rec_p=list(rec_t)
-                rec_pt1=list(rec_p[0])
-                rec_comp['comp_name']=rec_pt1[1]
-                rec_comp['jobdescription']=rec_pt1[2]
-                rec_comp['jobtitle']=rec_pt1[3]
-                rec_comp['skills']=rec_pt1[4]
-                rec_comp['joblocation_address']=rec_pt1[5]
-                rec_comp['vacencies']=rec_pt1[6]
-                rec_comp['domain']=rec_pt1[7]
-                rec_comp['linkedin']=rec_pt1[8]
-                rec_l.append(rec_comp)
-    
-            kwargs['recommended_jobs']=rec_l
-            # print('This is recommended jobs in users page: ',)
-        # this is for printing recommendation
-  
+   
+    print('you are:', request.session.get('name'))
 
-    # args = {'name': request.session.get('name'),'email':request.session.get('email')}
- 
-    # print('you are:', request.session.get('name'))
-
-    # print('your id:', request.session.get('email'))
+    print('your id:', request.session.get('email'))
     request.session.set_expiry(1200) #this is to expire the session within 20 min of inactivity
     # this is the query function
     def query(fieldname,variable):
@@ -697,6 +722,11 @@ def user(request):
                 place=value
                 query('place',place)
 
+            # if key=="email":
+            #     email=value
+            #     query('email',email)
+                # student_query('email', email)
+                # email_change_query="""UPDATE student SET email='{}' WHERE email='{}';""".format(fieldname,variable,id)
 
             if key=="website":
                 website=value
@@ -766,10 +796,9 @@ def user(request):
 
         # useer
         
-        # print('your id within user post fxn',id)
+        print('your id within user post fxn',id)
         # post ewquest
         kwargs=user_info(id)
-        recommended()
 
         return render(request, 'user.html',kwargs)
 
@@ -777,8 +806,7 @@ def user(request):
     if request.session.get('set')!='yes':
         return redirect('/')
     else: 
-        kwargs=user_info(id)  
-        recommended()  
+        kwargs=user_info(id)    
         return render(request, 'user.html',kwargs)
 
 def logout(request):

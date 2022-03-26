@@ -6,10 +6,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css"
-        integrity="sha512-10/jx2EXwxxWqCLX/hHth/vu2KY3jCF70dCQB8TSgNjbCVAC/8vai53GfMDrO2Emgwccf2pJqxct9ehpzG+MTw=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" /> -->
-    <link rel="stylesheet" href="/static/assets/input.css">
+    
+    {% comment %} <link rel="stylesheet" href="/static/assets/input.css"> {% endcomment %}
+    <link rel="stylesheet" href="/static/assets/index.9467d6ab.css">
     <title>Hire and Seek</title>
     <style>
         /* Dropdown Button */
@@ -61,13 +60,11 @@
 
         <div class="2 flex flex-row space-x-3 justify-center text-center">
             <span class="logo text-blue-800 dt ">
-                {% comment %} <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="fill-current w-7 h-7"> {% endcomment %}
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="fill-current w-7 h-7">
                     <!--! Font Awesome Pro 6.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
-                    {% comment %} <path
+                    <path
                         d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z" />
-                </svg> {% endcomment %}
-                <img src="/static/image/linkedin_logo.png" alt="logo"
-                style="margin-right: 5px;height: 30px;width: 45px;">
+                </svg>
             </span>
 
             <form action="/" method="post" class="search">
@@ -102,11 +99,11 @@
 
                 <ul
                     class="dropdown-content space-y-3 bg-white border-[1px] border-gray-400 rounded-lg db ">
-                    <li><a class="dt dark:hover:text-gray-700" href="/user/">Your Profile</a></li>
-                    <li><a class="dt dark:hover:text-gray-700" href="/user/">Your Jobs</a></li>
-                    <li><a class="dt dark:hover:text-gray-700" href="/user/">Your Intrest</a></li>
+                    <li><a class="dt dark:hover:text-gray-700" href="/company/">Your Profile</a></li>
+                    <li><a class="dt dark:hover:text-gray-700" href="/company/">Your Jobs</a></li>
+                    <li><a class="dt dark:hover:text-gray-700" href="/company/">Your Intrest</a></li>
                     <li><a class="dt dark:hover:text-gray-700" href="/logout/">Log Out</a></li>
-                    <li><a class="dt dark:hover:text-gray-700" href="#">Settings</a></li>
+                    <li><a class="dt dark:hover:text-gray-700" href="/settings/">Settings</a></li>
 
                 </ul>
 
@@ -128,15 +125,15 @@
         class="flex flex-col  text-gray-100">
         <li class="border-b-2 border-gray-300 hover:bg-gray-400 hover:text-gray-800 px-4 py-3 w-full"><a class="dt dark:hover:text-gray-700" href="/">Home</a></li>
         
-        <li class="border-b-2 border-gray-300 hover:bg-gray-400 hover:text-gray-800 px-4 py-3 w-full"><a class="dt dark:hover:text-gray-700" href="/user/">Your Jobs</a></li>
+        <li class="border-b-2 border-gray-300 hover:bg-gray-400 hover:text-gray-800 px-4 py-3 w-full"><a class="dt dark:hover:text-gray-700" href="/company/">Your Jobs</a></li>
         
-        <li class="border-b-2 border-gray-300 hover:bg-gray-400 hover:text-gray-800 px-4 py-3 w-full"><a class="dt dark:hover:text-gray-700" href="/user/">Your Intrest</a></li>
+        <li class="border-b-2 border-gray-300 hover:bg-gray-400 hover:text-gray-800 px-4 py-3 w-full"><a class="dt dark:hover:text-gray-700" href="/company/">Your Intrest</a></li>
         
         <li class="border-b-2 border-gray-300 hover:bg-gray-400 hover:text-gray-800 px-4 py-3 w-full"><a class="dt dark:hover:text-gray-700" href="/logout/">Log Out</a></li>
         <li class="border-b-2 flex flex-row space-x-2 justify-start border-gray-300 hover:bg-gray-400 hover:text-gray-800 px-4 py-3 w-full"><p class="dt dark:hover:text-gray-700" >Mode</p> <button onclick="mode()"
             class="shadow-md shadow-gray-500 dark:shadow-gray-200 rounded-lg text-white dark:text-black font-bold px-2 py-1 hover:opacity-80 duration-1000 dark:bg-[url('./image/dark.png')] bg-[url('./image/light-mode.png')] w-10 h-5 bg-no-repeat border-2 border-gray-300 mt-2 ml-2"></button></li>
         
-        <li class="border-b-2 border-gray-300 hover:bg-gray-400 hover:text-gray-800 px-4 py-3 w-full"><a class="dt dark:hover:text-gray-700" href="#">Settings</a></li>
+        <li class="border-b-2 border-gray-300 hover:bg-gray-400 hover:text-gray-800 px-4 py-3 w-full"><a class="dt dark:hover:text-gray-700" href="/settings/">Settings</a></li>
         
 
     <!-- phone Menu -->
@@ -153,12 +150,12 @@
             class="items1 resume w-full lg:w-[40%] db bg-white px-3 py-7 rounded-lg border-2 border-gray-200 dark:border-gray-600">
             <div class="field1 name">
                 <div class="photo flex flex-row justify-start mx-5" onclick="photo()" >
-                    <img src="/static/image/user.png" alt="" class="w-[6rem]" id="user_photo" onclick="photoClose()">
+                    <img src="https://logo.clearbit.com/{{domain}}" alt="" class="w-[6rem]" id="user_photo" onclick="photoClose()">
                 </div>
                 <div class="flex flex-row justify-around">
                     <div class="content w-[80%]">
                         <h2 class="text-3xl font-semibold text-left" id="name">{{name}}</h2>
-                        <p class="text-sm text-gray-600 dt" id="place">{{place}}</p>
+                        <p class="text-sm text-gray-600 dt" id="place">{{location}}</p>
 
                     </div>
                     <div class="edit w-10 h-10 flex flex-row justify-center text-center rounded-full items-center hover:bg-blue-300 px-2 py-2 "
@@ -184,7 +181,10 @@
                                     d="M464 64C490.5 64 512 85.49 512 112C512 127.1 504.9 141.3 492.8 150.4L275.2 313.6C263.8 322.1 248.2 322.1 236.8 313.6L19.2 150.4C7.113 141.3 0 127.1 0 112C0 85.49 21.49 64 48 64H464zM217.6 339.2C240.4 356.3 271.6 356.3 294.4 339.2L512 176V384C512 419.3 483.3 448 448 448H64C28.65 448 0 419.3 0 384V176L217.6 339.2z" />
                             </svg>
                         </div>
-                        <div class="text-xs text-gray-600 dt" id="email">{{email}}</div>
+                        <div class="text-xs text-gray-600 dt" id="email">
+                            <a href="mailto:{{email}},{{request.session.email}}">{{email}}</a>
+                        </div>
+                        <div class="text-xs text-gray-600 dt" id="email">{{phone}}</div>
                     </div>
                     <div class="flex flex-row space-x-1 w-1/2">
                         <div class="dt text-blue-500 flex flex-col justify-center">
@@ -195,8 +195,8 @@
                             </svg>
                         </div>
                         <div class="text-xs text-blue-600 font-semibold dt"><a
-                                href="https://{{website}}" target="_blank"
-                                id="website">{{website}}</a></div>
+                                href="https://{{domain}}" target="_blank"
+                                id="website">{{domain}}</a></div>
                     </div>
 
                 </div>
@@ -222,9 +222,7 @@
 
                     </div>
                 </div>
-                <div class="text-[10px] text-gray-600 ml-4" style="font-family: cursive;" id="summary">
-                   {{summary}}
-                </div>
+                <div class="text-[10px] text-gray-600 ml-4 " style="font-family: cursive;" id="summary">{{summary}}</div>
             </div>
 
             <hr class="text-gray-500 my-3 dark:text-gray-600">
@@ -232,7 +230,7 @@
             <div class="field3 expirence">
                 <div class="flex flex-row justify-around">
                     <div class="content w-[80%]">
-                        <h2 class="text-lg font-semibold text-left">Expirence</h2>
+                        <h2 class="text-lg font-semibold text-left">Type Of Company</h2>
 
                     </div>
                     <div onclick="experienceModalSwitch()"
@@ -248,7 +246,7 @@
                     </div>
                 </div>
                 <div class="text-[10px]  text-gray-600 text-left ml-4 " style="font-family: cursive;">
-                   {{experience}}
+                   {{type_of_company}}
 
                 </div>
             </div>
@@ -258,7 +256,7 @@
             <div class="field4 education">
                 <div class="flex flex-row justify-around">
                     <div class="content w-[80%]">
-                        <h2 class="text-lg font-semibold text-left">Education</h2>
+                        <h2 class="text-lg font-semibold text-left">Establish Year</h2>
 
                     </div>
                     <div onclick="educationModalSwitch()"
@@ -274,7 +272,7 @@
                     </div>
                 </div>
                 <div class="ml-4" id="education">
-                    <div class="universityName font-semibold text-md text-gray-600 dt" id="clggg">{{college}}
+                    <div class="universityName font-semibold text-md text-gray-600 dt" id="clggg">{{est_year}}
                     </div>
                     <div class="Degree text-sm text-gray-400 text-left" id="deggg">{{degree}}</div>
                     <div class="timePeriod text-left text-sm" id="tmppp">{{timePeriod}}</div>
@@ -286,7 +284,7 @@
             <div class="field5 license and certification">
                 <div class="flex flex-row justify-around">
                     <div class="content w-[80%]">
-                        <h2 class="text-lg font-semibold text-left">License and Certification</h2>
+                        <h2 class="text-lg font-semibold text-left">About</h2>
 
                     </div>
                     <div    onclick="licenseModalSwitch()"
@@ -302,15 +300,11 @@
                     </div>
                 </div>
                 <div class="text-[10px] text-gray-600 text-center  " style="font-family: cursive;">
-                    {%if certificate_name == cn %}
-                        This section is empty and won't appear in your resume.
-                    {%else%}
-                    <div class="ml-4 {{'hidden'}}" id="license">
-                        <div class="universityName font-semibold text-md text-gray-600 dt">{{certificate_name}}
-                        </div>
-                        <div class="Degree text-sm text-gray-400 text-left">{{certificate_desc}}</div>
+                    <div class="ml-4" id="license">
+                        {% comment %} <div class="universityName font-semibold text-md text-gray-600 dt">{{certificate_name}}
+                        </div> {% endcomment %}
+                        <div class="Degree text-sm text-gray-400 text-left">{{about}}</div>
                     </div>
-                    {%endif%}
 
                     {% comment %} {%if  certificate_name == cn
                         
@@ -326,56 +320,7 @@
 
             </div>
 
-            <hr class="text-gray-500 my-3 dark:text-gray-600">
 
-            <div class="field6 skills">
-                <div class="flex flex-row justify-around">
-                    <div class="content w-[80%]">
-                        <h2 class="text-lg font-semibold text-left">Skills</h2>
-
-                    </div>
-                    <div    onclick="skillModalSwitch()"
-                        class="edit w-10 h-10 flex flex-row justify-center text-center rounded-full items-center hover:bg-blue-300 px-2 py-2 ">
-
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"
-                            Class="dark:fill-gray-200 w-7 h-7">
-                            <!--! Font Awesome Pro 6.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
-                            <path
-                                d="M362.7 19.32C387.7-5.678 428.3-5.678 453.3 19.32L492.7 58.75C517.7 83.74 517.7 124.3 492.7 149.3L444.3 197.7L314.3 67.72L362.7 19.32zM421.7 220.3L188.5 453.4C178.1 463.8 165.2 471.5 151.1 475.6L30.77 511C22.35 513.5 13.24 511.2 7.03 504.1C.8198 498.8-1.502 489.7 .976 481.2L36.37 360.9C40.53 346.8 48.16 333.9 58.57 323.5L291.7 90.34L421.7 220.3z" />
-                        </svg>
-
-                    </div>
-                </div>
-                <div>
-                    <div class="skills-window ml-4 flex flex-col space-y-3">
-                    <div class="Database-work-with">
-                        <div class="universityName font-semibold text-md text-gray-600 dt">Database work with
-                        </div>
-                    <ul id="dbww" class="decoration-stone-800 text-xs list-disc list-inside flex flex-row space-x-3 justify-center">{{database_worked_with}}</ul>
-                    </div>
-                  <div class="Language">
-                    <div class="universityName font-semibold text-md text-gray-600 dt">Language Work With
-                    </div>
-                <ul id="lww" class="decoration-stone-800 text-xs list-disc list-inside flex flex-row space-x-3 justify-center">{{language_worked_with}}</ul>
-                  </div>
-                  <div class="Collab tools">
-                    <div class="universityName font-semibold text-md text-gray-600 dt">Collab tools
-                    </div>
-                <ul id="ct" class="decoration-stone-800 text-xs list-disc list-inside flex flex-row space-x-3 justify-center">{{collab_tools}}</ul>
-                  </div>
-                  <div class="OpSys">
-                    <div class="universityName font-semibold text-md text-gray-600 dt">Operating Systems Work With
-                    </div>
-                <ul id="opsys" class="decoration-stone-800 text-xs list-disc list-inside flex flex-row space-x-3 justify-center">{{opsys}}</ul>
-                  </div>
-                  <div class="Plateform-worked-with">
-                    <div class="universityName font-semibold text-md text-gray-600 dt">Platefrom Work With
-                    </div>
-                <div id="pww" class="decoration-stone-800 text-xs list-disc list-inside flex flex-row space-x-3 justify-center">{{plateform_worked_with}}</div>
-                  </div>
-            </div>
-        </div>
-            </div>
 
             <hr class="text-gray-500 my-3 dark:text-gray-600">
 
@@ -398,9 +343,9 @@
                     </div>
                 </div>
                 <div class="text-[10px] text-gray-600 text-center " style="font-family: cursive;">
-                    This section is empty and won't appear in your resume.
-                    <div class="ml-4" id="rewards">
-                        <div class="universityName font-semibold text-md text-gray-600 dt">{{honor_or_reward}}
+                    
+                    <div class="ml-4 flex flex-col justify-center space-y-2" id="rewards">
+                        <div class="universityName font-semibold text-md text-gray-600 dt text-left">{{honor_or_reward}}
                         </div>
                         <div class="Degree text-sm text-gray-400 text-left">{{honor_or_reward_desc}}</div>
                     </div>
@@ -414,35 +359,8 @@
 
         <div
             class="items2 side-window w-full lg:w-[30%] db dt bg-white px-3 py-7  rounded-lg border-2 border-gray-200 dark:border-gray-600">
-            <div class="Degree text-sm text-gray-600 font-semibold text-left dt">Recommended Jobs</div>
-
-            {%for i in recommended_jobs%}
-<div class="items2 side-window w-full my-3 mx-auto db dt bg-white px-3 py-7  rounded-lg border-2 border-gray-200 dark:border-gray-600">
-    <div class="photo flex flex-row justify-start mx-5"  >
-        <img src="https://logo.clearbit.com/{{i.domain}}" alt="" class="w-[6rem]" id="user_photo">
-    </div>
-   
-    <span class="font-bold text-2xl text-gray-600 dt">{{i.comp_name}}</span><br>
-    <label for="jt" class="text-gray-600 dt font-semibold">JobTitle :</label>
-   <span><p>{{i.jobtitle}}</p></span>  <br>
-   <label for="jt" class="text-gray-600 dt font-semibold">Location :</label>
-    <p>{{i.joblocation_address}}</p><hr class="mt-2">
-    <div class="hidden">
-        <p>{{i.jobdescription}}</p><br>
-        <p>{{i.skills}}</p><br>
-        <p>{{i.vacencies}}</p><br>
-        <p>{{i.domain}}</p><br>
-        <p>{{i.linkedin}}</p><br>
-        <p>{{i.job_id}}</p><br>
-        </div>
-    <button type=""  onclick="jobModalSwitch()"
-    class="mx-auto bg-blue-800 text-white hover:bg-blue-500 active:bg-blue-800 rounded-lg px-4 py-2 jobbtn mt-3" >Open</button>
-
-
-</div>
-
-   {% endfor %}
-
+            <div class="universityName font-semibold text-md text-gray-600 dt">Applicants Notification
+            </div>
         </div>
     </div>
     <div class="w-full h-[200%] hidden  absolute inset-0 bg-black bg-opacity-70 z-10" id="imageId">
@@ -471,20 +389,20 @@
                         </svg>
                     </button>
                 </div>
-                <form action="/user/" method="post" id="nameModal" class="flex flex-col space-y-3 ">
+                <form action="/company/" method="post" id="nameModal" class="flex flex-col space-y-3 ">
                     {% csrf_token %}
 
 
                     <div class="flex flex-col space-y-2 sm:flex-row  sm:space-y-0 sm:space-x-4 w-full justify-center">
-                        <input type="text" placeholder="Name" name="name"
+                        <input type="text" placeholder="Name" name="company_name"
                             class="rounded-lg db dark:focus:bg-gray-600 bg-gray-200 focus:bg-white  dark:border-[1px] dark:border-gray-600 focus:border-2 focus:border-blue-500 px-5 py-2 w-full sm:w-1/2">
-                        <input type="text" placeholder="Location" name="place"
+                        <input type="text" placeholder="Location" name="location"
                             class="rounded-lg db dark:focus:bg-gray-600 bg-gray-200 focus:bg-white  dark:border-[1px] dark:border-gray-600 focus:border-2 focus:border-blue-500 px-5 py-2 w-full sm:w-1/2 m-0">
                     </div>
 
-                    <input type="email" placeholder="UserName or Email" name="email"
+                    <input type="email" placeholder="Registered Email" name="email"
                         class="rounded-lg db dark:focus:bg-gray-600 bg-gray-200 focus:bg-white  dark:border-[1px] dark:border-gray-600 focus:border-2 focus:border-blue-500 px-5 py-2 ">
-                    <input type="website" placeholder="Website" name="website"
+                    <input type="website" placeholder="Domain" name="domain"
                         class="rounded-lg db dark:focus:bg-gray-600 bg-gray-200 focus:bg-white  dark:border-[1px] dark:border-gray-600 focus:border-2 focus:border-blue-500 px-5 py-2 ">
                     <input type="text" placeholder="Phone Number" pattern="[0-9]{10}" name="phone"
                         title="Please enter a ten Digit phone Number"
@@ -521,7 +439,7 @@
                         </svg>
                     </button>
                 </div>
-                <form action="/user/" method="post" id="summaryModal">
+                <form action="/company/" method="post" id="summaryModal">
 
                     {% csrf_token %}
 
@@ -530,7 +448,7 @@
                     class="rounded-lg bg-gray-200 focus:bg-white border-none focus:border-2 focus:border-blue-500 px-5 py-2 "> -->
                     <textarea name="summary" id="summary" cols="30" rows="10"
                         class="rounded-lg db pl bg-gray-200 border-none focus:border-2 focus:border-blue-500 px-5 py-2 w-full"
-                        placeholder="Enter something About You..."></textarea>
+                        placeholder="Enter Your Summary Here..."></textarea>
 
                     <div class="flex flex-row space-x-2 justify-end">
                         <button type="reset"
@@ -562,16 +480,16 @@
                         </svg>
                     </button>
                 </div>
-                <form action="/user/" method="post" id="experienceModal">
+                <form action="/company/" method="post" id="experienceModal">
 
                     {% csrf_token %}
 
                     <!-- 
                 <input type="email" placeholder="UserName or Email" name="email"
                     class="rounded-lg bg-gray-200 focus:bg-white border-none focus:border-2 focus:border-blue-500 px-5 py-2 "> -->
-                    <textarea name="experience" id="summary" cols="30" rows="10"
+                    <textarea name="toc" id="summary" cols="30" rows="10"
                         class="rounded-lg bg-gray-200 pl db border-none focus:border-2 focus:border-blue-500 px-5 py-2 w-full"
-                        placeholder="Describe your experience..."></textarea>
+                        placeholder="Describe your Company Type..."></textarea>
 
                     <div class="flex flex-row space-x-2 justify-end">
                         <button type="reset"
@@ -603,7 +521,7 @@
                         </svg>
                     </button>
                 </div>
-                <form action="/user/" method="post" id="educationModal">
+                <form action="/company/" method="post" id="educationModal">
 
                     {% csrf_token %}
 
@@ -611,12 +529,9 @@
                     <!-- 
                 <input type="email" placeholder="UserName or Email" name="email"
                     class="rounded-lg bg-gray-200 focus:bg-white border-none focus:border-2 focus:border-blue-500 px-5 py-2 "> -->
-                    <input type="text" placeholder="Institute name" name="college"
+                    <input type="text" placeholder="Establish Year" name="est_year"
                         class="rounded-lg db dark:focus:bg-gray-600 bg-gray-200 focus:bg-white  dark:border-[1px] dark:border-gray-600 focus:border-2 focus:border-blue-500 px-5 py-2 w-full my-1">
-                    <input type="text" placeholder="degree" name="degree"
-                        class="rounded-lg db dark:focus:bg-gray-600 bg-gray-200 focus:bg-white  dark:border-[1px] dark:border-gray-600 focus:border-2 focus:border-blue-500 px-5 py-2 w-full my-1">
-                    <input type="text" placeholder="Study Duration Ex:2018-2020" name="timePeriod"
-                        class="rounded-lg db dark:focus:bg-gray-600 bg-gray-200 focus:bg-white  dark:border-[1px] dark:border-gray-600 focus:border-2 focus:border-blue-500 px-5 py-2 w-full my-1">
+                    
 
                     <div class="flex flex-row space-x-2 justify-end">
                         <button type="reset"
@@ -648,16 +563,14 @@
                         </svg>
                     </button>
                 </div>
-                <form action="/user/" method="post" id="landcModal">
+                <form action="/company/" method="post" id="landcModal">
 
                     {% csrf_token %}
 
                     <!-- 
                 <input type="email" placeholder="UserName or Email" name="email"
                     class="rounded-lg bg-gray-200 focus:bg-white border-none focus:border-2 focus:border-blue-500 px-5 py-2 "> -->
-                    <input type="text" placeholder="Certificate name" name="certificate_name"
-                        class="rounded-lg db dark:focus:bg-gray-600 bg-gray-200 focus:bg-white  dark:border-[1px] dark:border-gray-600 focus:border-2 focus:border-blue-500 px-5 py-2 w-full my-1">
-                    <textarea type="text" placeholder="Description" name="certificate_desc" cols="30" rows="10"
+                    <textarea type="text" placeholder="About Your Company" name="about" cols="30" rows="10"
                         class="rounded-lg db dark:focus:bg-gray-600 bg-gray-200 focus:bg-white  dark:border-[1px] dark:border-gray-600 focus:border-2 focus:border-blue-500 px-5 py-2 w-full my-1"></textarea>
 
                     <div class="flex flex-row space-x-2 justify-end">
@@ -690,7 +603,7 @@
                         </svg>
                     </button>
                 </div>
-                <form action="/user/" method="post" id="skillModal">
+                <form action="/company/" method="post" id="skillModal">
                     {% csrf_token%}
 
 
@@ -744,18 +657,20 @@
                         </svg>
                     </button>
                 </div>
-                <form action="/user/" method="post" id="handrModal">
+                <form action="/company/" method="post" id="handrModal">
 
                     {% csrf_token %}
 
                     <!-- 
                 <input type="email" placeholder="UserName or Email" name="email"
                     class="rounded-lg bg-gray-200 focus:bg-white border-none focus:border-2 focus:border-blue-500 px-5 py-2 "> -->
-                    <input type="text" placeholder="Honor Or Reward name" name="honor_or_reward"
+                    <div class="flex flex-col space-y-2 w-full">
+                        <input type="text" placeholder="Honor Or Reward name" name="honor_or_reward"
                         class="rounded-lg db dark:focus:bg-gray-600 bg-gray-200 focus:bg-white  dark:border-[1px] dark:border-gray-600 focus:border-2 focus:border-blue-500 px-5 py-2 ">
                     <input type="text" placeholder="Description" name="honor_or_reward_desc"
                         class="rounded-lg db dark:focus:bg-gray-600 bg-gray-200 focus:bg-white  dark:border-[1px] dark:border-gray-600 focus:border-2 focus:border-blue-500 px-5 py-2 ">
                    
+                    </div>
 
                     <div class="flex flex-row space-x-2 justify-end">
                         <button type="reset"
@@ -881,12 +796,12 @@
             modalWindow = document.getElementById('lacModal');
             // modal Form Has the id nameModal
             var formModal = document.getElementById('landcModal');
-            var certificate_name = document.getElementById('license').getElementsByTagName('div')[0].innerHTML;
-            var certificate_desc = document.getElementById('license').getElementsByTagName('div')[1].innerHTML;
+            var about= document.getElementById('license').getElementsByTagName('div')[0].innerHTML;
+           
 
             modalWindow.classList.toggle('hidden');
-            formModal.getElementsByTagName('input')[1].value = certificate_name;
-            formModal.getElementsByTagName('textarea')[0].value = certificate_desc;
+            
+            formModal.getElementsByTagName('textarea')[0].value = about;
 
             // console.log(nameModal);
         }
