@@ -1,5 +1,5 @@
 
-#!/usr/bin/env python
+#// #!/usr/bin/env python
 # coding: utf-8
 
 # In[103]:
@@ -8,7 +8,7 @@
 import pandas as pd
 import numpy as np
 import ast
-
+from joblib import dump
 
 # In[104]:
 
@@ -172,7 +172,7 @@ cmp['jobtitle'] = cmp['jobtitle'].apply(lambda x:[i.replace(" ","")for i in x])
 # In[122]:
 
 
-#cmp['jobdescription']=cmp['jobdescription'].apply(lambda x:[i.replace(" ","")for i in x])
+# cmp['jobdescription']=cmp['jobdescription'].apply(lambda x:[i.replace(" ","")for i in x])
 cmp['skills']=cmp['skills'].apply(lambda x:[i.replace(" ","")for i in x])
 cmp['joblocation_address']=cmp['joblocation_address'].apply(lambda x:[i.replace(" ","")for i in x])
 
@@ -321,12 +321,12 @@ job['database_worked_with'] = c_DW()
 # In[144]:
 
 
-#def c_DT():
+# def c_DT():
 #    data8 = []
 #    for i in range(len(job)):
 #        data8.append(job.iloc[i].DevType.split(","))
 #    return data8
-#job['DevType'] = c_DT()
+# job['DevType'] = c_DT()
 
 
 # In[145]:
@@ -444,8 +444,8 @@ job_seekr['tags'][7]
 
 # In[157]:
 
+from sklearn.feature_extraction.text import CountVectorizer 
 
-from sklearn.feature_extraction.text import CountVectorizer
 cv = CountVectorizer(max_features=117,stop_words='english')
 
 
@@ -464,7 +464,7 @@ vector2.shape
 # In[160]:
 
 
-cv.get_feature_names()
+# cv.get_feature_names()
 
 
 # In[161]:
@@ -477,7 +477,7 @@ vector1.shape
 # In[162]:
 
 
-cv.get_feature_names()
+# cv.get_feature_names()
 
 
 # In[163]:
@@ -519,11 +519,10 @@ comp['tags'] = comp['tags'].apply(stem)
 # In[168]:
 
 
-from sklearn.metrics.pairwise import cosine_similarity
-
 
 # In[169]:
 
+from sklearn.metrics.pairwise import cosine_similarity
 
 simalarity = cosine_similarity(vector1, vector2)
 
